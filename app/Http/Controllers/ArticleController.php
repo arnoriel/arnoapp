@@ -1,0 +1,125 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Article;
+use App\Models\Creator;
+use Illuminate\Http\Request;
+
+class ArticleController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $article = Article::all();
+        return view('article.index', compact('article'));
+    }
+
+    public function articlehome()
+    {
+        $article = Article::all();
+        return view('home', compact('article'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $creator=Creator::all();
+        $article = Article::all();
+        return view('article.create', compact('creator','article'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required',
+            'thumbnail' => 'required',
+            'imgsrc' => 'required',
+            'content' => 'required',
+            'creator_id' => 'required',
+            'date' => 'required',
+         ]);
+
+         $article = new Article;
+         $article->title = $request->title;
+         if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/article/', $name);
+            $article->thumbnail = $name;
+            } 
+        $article->imgsrc = $request->imgsrc;
+        $article->content = $request->content;
+        $article->creator_id = $request->creator_id;
+        $article->date = $request->date;
+        $article->save();
+        return redirect()->route('article.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        $creator=Creator::all();
+        $article=Article::findOrFail($id);
+        return view('article.show', compact('creator','article'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        $creator=Creator::all();
+        $article=Article::findOrFail($id);
+        return view('article.edit', compact('creator','article'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'title' => 'required',
+            'thumbnail' => 'required',
+            'imgsrc' => 'required',
+            'content' => 'required',
+            'creator_id' => 'required',
+            'date' => 'required',
+         ]);
+
+         $article=Article::findOrFail($id);
+         $article->title = $request->title;
+         if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/article/', $name);
+            $article->thumbnail = $name;
+            }
+        $article->imgsrc = $request->imgsrc;
+        $article->content = $request->content;
+        $article->creator_id = $request->creator_id;
+        $article->date = $request->date;
+        $article->save();
+        return redirect()->route('article.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $article = article::findOrFail($id);
+        $article->delete();
+        return redirect()->route('article.index');
+    }
+}
