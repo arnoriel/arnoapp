@@ -16,6 +16,12 @@ class CreatorController extends Controller
         return view('creator.index', compact ('creator'));
     }
 
+    public function creatormain()
+    {
+        $creator = Creator::all();
+        return view('main.index', compact ('creator'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

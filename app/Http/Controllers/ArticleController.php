@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Creator;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -21,6 +22,12 @@ class ArticleController extends Controller
     {
         $article = Article::all();
         return view('home', compact('article'));
+    }
+
+    public function articlemain()
+    {
+        $article = Article::all();
+        return view('main.index', compact('article'));
     }
 
     /**
@@ -71,6 +78,14 @@ class ArticleController extends Controller
         $creator=Creator::all();
         $article=Article::findOrFail($id);
         return view('article.show', compact('creator','article'));
+    }
+
+    public function baca($id)
+    {   
+        $setting=Setting::all();
+        $creator=Creator::all();
+        $article=Article::findOrFail($id);
+        return view('main.show', compact('setting','creator','article'));
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\Article;
+use App\Models\Creator;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -16,10 +18,12 @@ class SettingController extends Controller
         return view ('setting.index', compact ('setting'));
     }
 
-    public function indexset()
+    public function mainset()
     {
+        $article=Article::all();
+        $creator=Creator::all();
         $setting=Setting::all();
-        return view ('beranda.index', compact ('setting'));
+        return view ('main.index', compact ('article','creator','setting'));
     }
 
     /**
