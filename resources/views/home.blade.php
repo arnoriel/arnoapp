@@ -23,20 +23,35 @@
             <br>
 
             <h5 class="fw-semibold">Recent Articles</h5>
-            <table id="myTable">
+            <br>
+            <table class="table table-bordered" id="myTable">
                 <thead>
-                    <th>No</th>
-                    <th>Title</th>
-                </thead>
-                @php $no=1 @endphp
-                @foreach ($article as $atc)
-                    <tbody>
+                    <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Thumbnail</th>
+                        <th>Creator</th>
+                        <th>Date Created</th>
+                        <th>Action</th>
+                    </tr>
+                <tbody>
+                    @php $no=1 @endphp
+                    @foreach ($article as $data)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $atc->title }}</td>
+                            <td>{{ $data->title }}</td>
+                            <td><img src="{{ $data->thumbnail() }}" style="width: 100px;" alt=""></td>
+                            <td>{{ $data->creator->name }}</td>
+                            <td>{{ $data->date }}</td>
+                            <td>
+                                <a href="{{ route('article.show', $data->id) }}" class="btn btn-warning"><i
+                                        class="ti ti-eye"></i> Show Article</a>
+
+                            </td>
                         </tr>
-                    </tbody>
-                @endforeach
+                    @endforeach
+                </tbody>
+                </thead>
             </table>
         </div>
     </div>

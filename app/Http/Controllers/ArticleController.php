@@ -30,6 +30,14 @@ class ArticleController extends Controller
         return view('main.index', compact('article'));
     }
 
+    public function menu()
+    {
+        $setting=Setting::all();
+        $creator=Creator::all();
+        $article = Article::all();
+        return view('main.article', compact('setting', 'creator', 'article'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

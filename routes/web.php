@@ -38,6 +38,9 @@ Route::get('/article', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/artikel', function () {
+    return view('main.article');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -47,6 +50,7 @@ route::resource('creator', CreatorController::class);
 route::resource('article', ArticleController::class);
 Route::get('/main', [App\Http\Controllers\SettingController::class, 'mainset']);
 Route::get('/main/{id}', [App\Http\Controllers\ArticleController::class, 'baca']);
+Route::get('/artikel', [App\Http\Controllers\ArticleController::class, 'menu']);
 // Route::get('/main', [App\Http\Controllers\ArticleController::class, 'articlemain']);
 // Route::get('/main', [App\Http\Controllers\CreatorController::class, 'creatormain']);
 Route::get('/home', [App\Http\Controllers\ArticleController::class, 'articlehome']);

@@ -3,7 +3,7 @@
 @section('content')
     @foreach ($setting as $set)
         <h4>{{$set->info}}</h4>
-         <center><img src="{{$set->cover()}}" alt=""></center>
+         <center><img src="{{$set->cover()}}" alt="" style="width:600px;"></center>
          <br>
          <h5><p>{{$set->bio}}</p></h5>
          <br>
@@ -20,8 +20,8 @@
             @foreach ($article as $data)
             <tr>
                 <td><a href="/main/{{$data->id}}"><img src="{{$data->thumbnail()}}" style="width: 400px;"></a></td>
-                <td>{{$data->title}}</td>
-                <td>{{$data->creator->name}}</td>
+                <td><strong>{{$data->title}}</strong></td>
+                <td><strong>{{$data->creator->name}}</strong></td>
             </tr>
             @endforeach
             </tbody>

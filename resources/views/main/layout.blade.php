@@ -40,7 +40,10 @@
                 @yield('content')
             </main>
         </div>
-      
+        <div class="py-6 px-6 text-center">
+          <p class="mb-0 fs-4"><a href="/main" class="pe-1 text-primary text-decoration-underline">{{$set->title}}</a> Developed by <a class="pe-1 text-primary text-decoration-underline">Arnoriel</a></p>
+          <p class="mb-0 fs-4"> Copyright. © 2023</p>
+        </div>
     </div>
 
   <script src="{{asset('admin/assets/libs/jquery/dist/jquery.min.js')}}"></script>
