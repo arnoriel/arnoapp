@@ -1,6 +1,10 @@
 @extends('main.layout')
 
 @section('content')
+<br>
+<br>
+<br>
+<br>
 <h3>Semua Artikel</h3>
 <br>
 <table class="table table-bordered" id="myTable">

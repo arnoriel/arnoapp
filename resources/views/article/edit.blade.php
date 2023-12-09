@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label class="font-weight-bold">Image Source (Link or Title): </label>
-                    <input type="text" value="{{$article->title}}" class="form-control @error('imgsrc') is-invalid @enderror" name="imgsrc"
+                    <input type="text" value="{{$article->imgsrc}}" class="form-control @error('imgsrc') is-invalid @enderror" name="imgsrc"
                         value="{{ old('imgsrc') }}" placeholder="Insert Source">
 
                     <!-- error message untuk imgsrc -->
@@ -45,8 +45,8 @@
                 <br>
                 <div class="form-group">
                     <label class="font-weight-bold">Content</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5"  value="{{$article->content}}"
-                        placeholder="Masukkan Konten">{{ old('content') }}</textarea>
+                    <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5"  
+                        placeholder="Masukkan Konten">{{$article->content}}</textarea>
 
                     <!-- error message untuk content -->
                     @error('content')
@@ -62,7 +62,7 @@
                             <label class="font-weight-bold">Creator</label>
                             <select class="form-select" value="{{$article->creator->name}}" aria-label="Default select example" name="creator_id"
                                 id="">
-                                <option selected>Select Creator</option>
+                                <option selected>Select Creator (needed to Verificate)</option>
                                 @foreach ($creator as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Creator;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CreatorController extends Controller
 {
@@ -48,6 +49,7 @@ class CreatorController extends Controller
         $creator->phone = $request->phone;
         $creator->dob = $request->dob;
         $creator->save();
+        Alert::success('Successfully added Creator data ', 'Data has been entered in the database');
         return redirect()->route('creator.index');
     }
 
@@ -87,6 +89,7 @@ class CreatorController extends Controller
         $creator->phone = $request->phone;
         $creator->dob = $request->dob;
         $creator->save();
+        Alert::info('Successfully edited Creator data ', 'Data has been updated from the database');
         return redirect()->route('creator.index');
     }
 
@@ -97,6 +100,7 @@ class CreatorController extends Controller
     {
         $creator = Creator::findOrFail($id);
         $creator->delete();
+        Alert::succsss('Successfully deleted Creator data ', 'Data has been dropped from the database');
         return redirect()->route('creator.index');
     }
 }

@@ -25,18 +25,18 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">info</label>
-                                <input type="text" name="info" value="{{$setting->info}}" class="form-control @error('info') is-invalid @enderror">
-                                @error('info')
+                                <label for="">bio</label>
+                                <input type="text" name="bio" value="{{$setting->bio}}" class="form-control @error('bio') is-invalid @enderror">
+                                @error('bio')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">bio</label>
-                                <input type="text" name="bio" value="{{$setting->bio}}" class="form-control @error('bio') is-invalid @enderror">
-                                @error('bio')
+                                <label for="">info</label>
+                                <input type="text" name="info" value="{{$setting->info}}" class="form-control @error('info') is-invalid @enderror">
+                                @error('info')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

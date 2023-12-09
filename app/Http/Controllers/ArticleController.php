@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Creator;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleController extends Controller
 {
@@ -75,6 +76,7 @@ class ArticleController extends Controller
         $article->creator_id = $request->creator_id;
         $article->date = $request->date;
         $article->save();
+        Alert::success('Successfully added Article data ', 'Data has been entered in the database');
         return redirect()->route('article.index');
     }
 
@@ -133,6 +135,7 @@ class ArticleController extends Controller
         $article->creator_id = $request->creator_id;
         $article->date = $request->date;
         $article->save();
+        Alert::success('Successfully edited Article data ', 'Data has been updated from the database');
         return redirect()->route('article.index');
     }
 
@@ -143,6 +146,7 @@ class ArticleController extends Controller
     {
         $article = article::findOrFail($id);
         $article->delete();
+        Alert::success('Successfully deleted Article data ', 'Data has been dropped from the database');
         return redirect()->route('article.index');
     }
 }

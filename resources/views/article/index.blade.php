@@ -9,7 +9,6 @@
     </div>
     <div class="card-body">
         <h5>Available Articles</h5>
-        <p class="samll-text">Note! Before editing your Article it is better to copy the content section from show article first before start editing.</p>
         <br>
         <table class="table table-bordered" id="myTable">
             <thead>

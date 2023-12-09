@@ -1,58 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-@foreach ($setting as $set)
+ @foreach ($setting as $set)
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
   <title>{{$set->title}}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
   <link href="{{asset('images/app/logo.png')}}" rel='shortcut icon'>
-  <link rel="stylesheet" href="{{asset('admin/assets/css/styles.min.css')}}" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{asset('scaffold/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{asset('scaffold/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('scaffold/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('scaffold/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('scaffold/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('scaffold/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('scaffold/assets/css/style.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 @endforeach
 <body>
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <img src="{{asset('images/app/logo.png')}}" style="width: 50px;"> 
-        <a class="navbar-brand" href="#"> {{$set->title}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" a  ria-current="page" href="/main">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" a  ria-current="page" href="/artikel">Artikel</a>
-            </li>
-          </ul>
-        </div>
+   <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+      <img src="{{asset('images/app/logo.png')}}" style="width: 50px;">
+      <div class="logo me-auto">
+        <h1><a href="#">{{$set->title}}</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
-    </nav>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="/main">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="/artikel">Artikel</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a link href="https://twitter.com"><i class="bi bi-twitter-x"></i></a>
+        <a link href="https://facebook.com"><i class="bi bi-facebook"></i></a>
+        <a link href="https://instagram.com"><i class="bi bi-instagram"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
         <div class="container">
          
             <main>
-              <br>
                 @yield('content')
             </main>
         </div>
-        <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4"><a href="/main" class="pe-1 text-primary text-decoration-underline">{{$set->title}}</a> Developed by <a class="pe-1 text-primary text-decoration-underline">Arnoriel</a></p>
-          <p class="mb-0 fs-4"> Copyright. © 2023</p>
+        <div class="py-3 px-3 text-center">
+          <p class="mb-0 fs-6"><a href="/main" class="pe-1 text-primary text-decoration-underline">{{$set->title}}</a> Developed by <a class="pe-1 text-primary text-decoration-underline">Arnoriel</a></p>
+          <p class="mb-0 fs-6"> Copyright. © 2023</p>
         </div>
     </div>
 
-  <script src="{{asset('admin/assets/libs/jquery/dist/jquery.min.js')}}"></script>
-  <script src="{{asset('admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('admin/assets/js/sidebarmenu.js')}}"></script>
-  <script src="{{asset('admin/assets/js/app.min.js')}}"></script>
-  <script src="{{asset('admin/assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
-  <script src="{{asset('admin/assets/libs/simplebar/dist/simplebar.js')}}"></script>
-  <script src="{{asset('admin/assets/js/dashboard.js')}}"></script>
+  <!-- Vendor JS Files -->
+  <script src="{{asset('scaffold/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('scaffold/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('scaffold/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('scaffold/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('scaffold/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('scaffold/assets/vendor/php-email-form/validate.js')}}"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{{asset('scaffold/assets/js/main.js')}}"></script>
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script>

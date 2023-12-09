@@ -19,8 +19,8 @@
                 <tr>
                     <th scope="col">Site Title</th>
                     <th scope="col">Cover</th>
-                    <th scope="col">Info</th>
                     <th scope="col">Bio</th>
+                    <th scope="col">Info</th>
                     <th scope="col">About</th>
                 </tr>
             </thead>
@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{$data->title}}</td>
                     <td><img src="{{$data->cover()}}" style="width: 100px;" alt=""></td>
-                    <td>{{$data->info}}</td>
                     <td>{{$data->bio}}</td>
+                    <td>{{$data->info}}</td>
                     <td>{{$data->about}}</td>
                 </tr>
             </tbody>

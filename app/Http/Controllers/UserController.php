@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -32,6 +33,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+        Alert::success('Successfully added User data ', 'Data has been entered in the database');
         return redirect()->route('user.index');
     }
 
@@ -54,6 +56,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+        Alert::info('Successfully edited User data ', 'Data has been updated from the database');
         return redirect()->route('user.index');
     }
 
@@ -61,6 +64,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+        Alert::success('Successfully deleted User data ', 'Data has been dropped in the database');
         return redirect()->route('user.index');
     }
 

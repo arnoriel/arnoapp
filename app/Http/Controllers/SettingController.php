@@ -6,6 +6,7 @@ use App\Models\Setting;
 use App\Models\Article;
 use App\Models\Creator;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
@@ -59,6 +60,7 @@ class SettingController extends Controller
         $setting->bio = $request->bio;
         $setting->about = $request->about;
         $setting->save();
+        Alert::success('Successfully added new Setting');
         return redirect()->route('setting.index');
     }
 
@@ -107,6 +109,7 @@ class SettingController extends Controller
         $setting->bio = $request->bio;
         $setting->about = $request->about;
         $setting->save();
+        Alert::success('Successfully Updated Site Settings');
         return redirect()->route('setting.index');
     }
     /**
