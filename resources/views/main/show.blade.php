@@ -14,7 +14,7 @@ Bagikan:
 <a link href="https://instagram.com" class="text-danger"><i class="bi bi-instagram"></i></a>
 <br>
 <br>
-<img src="{{$article->thumbnail()}}" alt="thumbnail" style="width: 500px;">
+<img src="{{$article->thumbnail()}}" alt="thumbnail" style="width: 400px;">
 <p class="small-text">Image Source: {{$article->imgsrc}}</p>
 <br>
 <p>{!! $article->content !!}</p>
