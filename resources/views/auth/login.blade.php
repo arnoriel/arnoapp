@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="row mb-0">
                                             <div class="col-md-9 offset-md-0">
-                                                <button type="submit" class="btn btn-primary" style="width: 600px; height:45px;">
+                                                <button type="submit" class="btn btn-primary" style="width: 400px; height:45px;">
                                                     {{ __('Login') }}
                                                 </button>
                                             </div>
